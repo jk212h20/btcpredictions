@@ -4,6 +4,9 @@
 [build]
 builder = "nixpacks"
 
+[build.env]
+NIXPACKS_NODE_VERSION = "20"
+
 [deploy]
 startCommand = "yarn build && node dist/backend/api/lib/serve.js"
 healthcheckPath = "/health"
