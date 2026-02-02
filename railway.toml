@@ -1,0 +1,12 @@
+# Railway Configuration for Manifold
+# This file defines the build and deploy settings for Railway
+
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "yarn build && node dist/backend/api/lib/serve.js"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
