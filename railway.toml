@@ -3,12 +3,13 @@
 
 [build]
 builder = "nixpacks"
+buildCommand = "yarn install --ignore-engines && yarn workspace @manifold/api build"
 
 [build.env]
 NIXPACKS_NODE_VERSION = "20"
 
 [deploy]
-startCommand = "yarn build && node dist/backend/api/lib/serve.js"
+startCommand = "node dist/backend/api/lib/serve.js"
 healthcheckPath = "/health"
 healthcheckTimeout = 30
 restartPolicyType = "on_failure"
